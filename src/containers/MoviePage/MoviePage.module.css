@@ -1,0 +1,95 @@
+.Main {
+  width: 100%;
+  min-height: calc(100vh - 5rem - 3rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+.Container{
+  width: 60%;
+  margin: 1.5rem auto;
+  padding: 1rem 0;
+  background-color: var(--color-grey-light-2);
+  border-radius: 5px;
+  box-shadow: var(--shadow-dark);
+}
+.TitleAndBtnContainer{
+  display: flex;
+  justify-content: center;
+}
+.Primary_title{
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var( --color-grey-dark-2);
+}
+.PosterAndDataContainer{
+  width: 100%;
+  padding: 1.5rem 0;
+  display: flex;
+}
+.PosterAndDataContainer div{
+  margin: 0.8rem;
+}
+.DataContainer div {
+  font-size: 0.8rem;
+  margin: 1rem;
+  color: var(--color-grey-dark-1);
+}
+.LinkContainer{
+  display:flex;
+  justify-content: center;
+}
+.LikeAndGoBackBtnContainer{
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+}
+@media screen and (max-width: 1200px) {
+  .Container{
+    width: 80%; 
+  }
+}
+@media screen and (max-width: 900px) {
+  .PosterAndDataContainer{
+    padding: 0;
+  }
+  .Main{
+    padding: 1rem;
+  }
+  .Container{
+    width: 100%; 
+  }
+  .DataContainer{
+    font-size: 0.7rem;
+  }
+  .DataContainer div{
+    margin: 0.7rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .PosterAndDataContainer{
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+  }
+  .PosterContainer{
+    width: auto;
+    text-align: center;
+
+  }
+  .PosterAndDataContainer div{
+    margin: 0;
+  }
+  .DataContainer div{
+    margin: 0.5rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  .Main{
+    padding: 0;
+  }
+  .Container{
+    border-radius: 0;
+  }
+}
