@@ -4,7 +4,7 @@ import theme from '../../theme'
 export const Head = styled.div`
   height: 5rem;
   width: 100%;
-  background-color: ${theme.Colors.Primary.Primary};
+  background-color: ${theme.colors.primary.primary};
 `
 export const Container = styled.div`
   width: 80%;
@@ -13,11 +13,11 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  @media screen and (max-width: ${theme.BreakePoints.d}) {
+  @media screen and (max-width: ${theme.breakepoints.d}) {
     width: 100%;
     padding: 0 2rem;
   }
-  @media screen and (max-width: ${theme.BreakePoints.t}) {
+  @media screen and (max-width: ${theme.breakepoints.t}) {
     width: 100%;
     padding: 0;
   }
@@ -25,16 +25,8 @@ export const Container = styled.div`
     height: 5rem;
     width: 5rem;
     padding: 0.5rem;
-    @media screen and (max-width: ${theme.BreakePoints.t}) {
+    @media screen and (max-width: ${theme.breakepoints.t}) {
       display: none;
     }
-  }
-`
-export const GitHub = styled.div`
-  text-align: center;
-  cursor: pointer;
-  & > a {
-    text-decoration: none;
-    color: ${theme.Colors.Typography.Light1};
   }
 `

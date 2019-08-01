@@ -3,25 +3,25 @@ import theme from '../../theme'
 
 export const Container = styled.div`
 padding: 1rem;
-background-color: ${theme.Colors.Primary.Primary};
-color: ${theme.Colors.Typography.Light1};
-box-shadow: ${theme.Shadow.Dark};
+background-color: ${theme.colors.primary.primary};
+color: ${theme.colors.typography.light1};
+box-shadow: ${theme.shadow.dark};
 border-radius: 6px;
 cursor: pointer;
 transition: all 0.3s;
 &:hover {
-  background-color: ${theme.Colors.Primary.PrimaryDark};
+  background-color: ${theme.colors.primary.primaryDark};
 }
 `
 export const PrimaryTitle = styled.div`
   display: block;
   font-size: 0.8rem;
-  color: ${theme.Shadow.Dark};
+  color: ${theme.shadow.dark};
   text-align: center;
-  @media screen and (max-width: ${theme.BreakePoints.d}) {
+  @media screen and (max-width: ${theme.breakepoints.d}) {
     font-size: 0.7rem;
   }
-  @media screen and (max-width: ${theme.BreakePoints.m}) {
+  @media screen and (max-width: ${theme.breakepoints.m}) {
     font-size: 0.9rem;
   }
 `

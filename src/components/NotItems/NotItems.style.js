@@ -12,12 +12,12 @@ export const TitlePrimary = styled.div`
   font-size: 1.1rem;
   font-weight: 600;
   text-align: center;
-  color: ${theme.Colors.Typography.Dark1};
+  color: ${theme.colors.typography.dark1};
 `
 export const TitleSecondary = styled.div`
   font-size: 0.8rem;
   font-weight: 300;
-  color: ${theme.Colors.Typography.Dark1};
+  color: ${theme.colors.typography.dark1};
   text-align: center;
 `
 export const LogoContainer = styled.div`
