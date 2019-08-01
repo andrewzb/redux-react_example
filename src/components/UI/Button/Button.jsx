@@ -1,5 +1,5 @@
 import React from 'react'
-import classes from './Button.module.css'
+import { ButtonAncerTag, LinkAncerTag, LikeAncerTag } from './Button.style'
 
 // **like
 // **link
@@ -12,13 +12,19 @@ const Button = props => {
   const title = props.title || 'clicked me'
   const isActive = props.isActive || 'active'
 
-  const activeClasses = []
-  activeClasses.push(classes[type])
-  if (isActive === 'disable') {
-    activeClasses.push(classes.disable)
+  const getButton = () => {
+    switch (type) {
+      case 'button': return (<ButtonAncerTag disable={(isActive === 'active') ? false : true} onClick={action} link={link}>{title}</ButtonAncerTag>)
+      case 'link': return (<LinkAncerTag disable={(isActive === 'active') ? false : true} onClick={action} link={link}>{title}</LinkAncerTag>)
+      case 'like': return (<LikeAncerTag disable={(isActive === 'active') ? false : true} onClick={action} link={link}>{title}</LikeAncerTag>)
+      default: return null
+    }
   }
+
   return (
-    <a className={activeClasses.join(' ')} onClick={action} href={link}> {title} </a>
+    <React.Fragment>
+      {getButton()}
+    </React.Fragment>
   )
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import classes from './IconUserBar.module.css'
+import { Container } from './IconUserBar.style'
 
 import { ReactComponent as LogoutLogo } from '../../../assets/logout.svg'
 import { ReactComponent as LoginLogo } from '../../../assets/login.svg'
@@ -36,11 +36,9 @@ const IconUserBar = props => {
   }
 
   return (
-    <div className={classes.Container}>
+    <Container>
       {Output}
-
-    </div>
-
+    </Container>
   )
 }
 

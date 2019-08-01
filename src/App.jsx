@@ -1,11 +1,10 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
-import Header from './containers/Header/Header'
-import Footer from './components/Footer/Footer'
+import Header from './containers/Header/Header.jsx'
+import Footer from './components/Footer/Footer.jsx'
 import MoviePage from './containers/MoviePage/MoviePage'
 import ListMoviePrev from './containers/ListMoviePrev/ListMoviePrev'
 import LikeList from './containers/LikeList/LikeList'
-import './App.css'
 
 class App extends React.Component {
   render () {

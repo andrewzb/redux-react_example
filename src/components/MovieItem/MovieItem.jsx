@@ -1,18 +1,18 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
-import classes from './MovieItem.module.css'
+import { Container, PrimaryTitle, PosterContainer, MoviePoster } from './MovieItem.style'
 import * as config from '../../config'
 
 const MovieItem = ({ Title, Year, imdbID, Type, Poster, history }) => {
   return (
-    <div className={classes.Container} onClick={() => { history.push(`/${imdbID}`) }}>
-      <div className={classes.Title} >
+    <Container onClick={() => { history.push(`/${imdbID}`) }}>
+      <PrimaryTitle>
         {Title}
-      </div>
-      <div className={classes.PosterContainer} >
-        <img className={classes.Poster} src={Poster === 'N/A' ? config.DEF_POSTER : Poster} alt="Poster" />
-      </div>
-    </div>
+      </PrimaryTitle>
+      <PosterContainer>
+        <MoviePoster img={Poster === 'N/A' ? config.DEF_POSTER : Poster} />
+      </PosterContainer>
+    </Container>
   )
 }
 

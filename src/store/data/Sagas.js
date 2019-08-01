@@ -49,7 +49,12 @@ const getMoviesByTitle = function * (action) {
 const getMoviesByTitleNextPage = function * (action) {
   try {
     const { title, page } = yield action
-    const reqPage = yield page + 1
+    let reqPage = yield page
+    if (reqPage <= 0) {
+      reqPage = 1
+    } else {
+      reqPage = reqPage + 1
+    }
     const req = yield axios(`http://www.omdbapi.com/?apikey=${apiConfig.API_KEY}&s=${title}&page=${reqPage}`)
     const { totalResults, Search } = req.data
     const data = {
@@ -71,8 +76,12 @@ const getMoviesByTitleNextPage = function * (action) {
 const getMoviesByTitlePrevPage = function * (action) {
   try {
     const { title, page } = yield action
-    let reqPage = yield page - 1
-    if (reqPage <= 0) { reqPage = 1 }
+    let reqPage = yield page
+    if (reqPage <= 0) {
+      reqPage = 1
+    } else {
+      reqPage = reqPage - 1
+    }
     const req = yield axios(`http://www.omdbapi.com/?apikey=${apiConfig.API_KEY}&s=${title}&page=${reqPage}`)
     const { totalResults, Search } = req.data
     const data = {

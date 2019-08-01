@@ -1,7 +1,7 @@
 import React from 'react'
 import IconUserBar from './IconUserBar/IconUserBar'
-import classes from './UserBar.module.css'
 import { withRouter } from 'react-router-dom'
+import { Container } from './UserBar.style'
 
 const UserBar = props => {
   const { bascketIsEmpty } = props
@@ -15,9 +15,9 @@ const UserBar = props => {
 
   const getBasket = boll => (boll === 'true' ? <IconUserBar type="heart" /> : <IconUserBar type="heartfill" />)
   return (
-    <div className={classes.Container} onClick={() => props.history.push('/likelist')} >
+    <Container onClick={() => props.history.push('/likelist')} >
       {getBasket(bascketIsEmpty)}
-    </div>
+    </Container>
   )
 }
 

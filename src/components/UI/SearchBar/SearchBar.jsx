@@ -1,11 +1,15 @@
 import React from 'react'
-import classes from './SearchBar.module.css'
 import { ReactComponent as Magnifier } from '../../../assets/magnifier.svg'
+import { Searchbar, MagnifierBtn, SearchInput } from './SearchBar.style'
+
 const SearchBar = props => {
   return (
-    <div className={classes.SearchBarContainer}>
-      <input className={classes.SearchBar} value={props.title} type="text" placeholder="Search.." onChange={props.onTupe} /> <div onClick={props.onSearch} className={classes.MagnifierBtn}><Magnifier /></div>
-    </div>
+    <Searchbar>
+      <SearchInput value={props.title} type="text" placeholder="Search.." onChange={props.onTupe} />
+      <MagnifierBtn onClick={props.onSearch}>
+        <Magnifier />
+      </MagnifierBtn>
+    </Searchbar>
   )
 }
 

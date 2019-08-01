@@ -1,20 +1,20 @@
 import React from 'react'
-import classes from './NotItems.module.css'
 import { ReactComponent as MovieLogo } from '../../assets/movie.svg'
+import { Container, TitlePrimary, TitleSecondary, LogoContainer } from './NotItems.style'
 
 const NotItems = props => {
   return (
-    <div className={classes.Container}>
-      <div className={classes.TitlePrimary}>
+    <Container>
+      <TitlePrimary>
         Your's Basket is Empty
-      </div>
-      <div className={classes.TitleSecondary}>
+      </TitlePrimary>
+      <TitleSecondary>
         Plese Put Something In It
-      </div>
-      <div className={classes.LogoContainer}>
+      </TitleSecondary>
+      <LogoContainer>
         <MovieLogo />
-      </div>
-    </div>
+      </LogoContainer >
+    </Container>
   )
 }
 
