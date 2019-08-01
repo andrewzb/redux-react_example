@@ -1,8 +1,7 @@
 import * as actionsTypes from './ActionTypes'
-import * as config from '../../config'
 
 const initialState = {
-  Title: config.DEF_TITLE,
+  Title: process.env.REACT_APP_DEF_TITLE,
   CurrentPage: 1,
   MoviesOnPage: [],
   ResCounter: null,

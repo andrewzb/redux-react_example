@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import * as actionsCreater from '../../store/data/ActionCreaters'
-import classes from './ListMoviePrev.module.css'
+import { Container, MovieContainer, ButtonsContainer, ButtonContainer } from './ListMoviePrev.style'
 import MovieItem from '../../components/MovieItem/MovieItem'
 import Spinner from '../../components/Spinner/Spinner'
 import Btn from '../../components/UI/Button/Button'
@@ -28,7 +28,7 @@ class ListMoviePrev extends React.Component {
   }
 
   getMoviesOnPage () {
-    return (this.props.MoviesOnPage.map(el => (
+    return this.props.MoviesOnPage.map(el => (
       <MovieItem
         Title={el.Title}
         Year={el.Year}
@@ -36,47 +36,38 @@ class ListMoviePrev extends React.Component {
         Type={el.Type}
         Poster={el.Poster}
         key={el.imdbID} />
-    )))
+    ))
   }
   getMoviesJSX () {
     const maxPages = Math.floor(this.props.ResCounter / 9) + 1
     const page = this.props.CurrentPage
     return (
       <React.Fragment>
-        <div className={classes.MovieContainer}>
-          {this.getMoviesOnPage()}
-        </div>
-        <div className={classes.buttonsContainer}>
-          <div className={classes.buttonContainer}>
+        <MovieContainer>{this.getMoviesOnPage()}</MovieContainer>
+        <ButtonsContainer>
+          <ButtonContainer>
             <Btn
               click={e => this.PrevHandler(e)}
               type={'button'}
               title={'prev'}
-              isActive={(page <= 1) ? 'disable' : 'active'} />
-          </div>
-          <div className={classes.buttonContainer}>
+              isActive={page <= 1 ? 'disable' : 'active'} />
+          </ButtonContainer>
+          <ButtonContainer>
+            <Btn isActive={'disable'} title={this.props.CurrentPage} />
+          </ButtonContainer>
+          <ButtonContainer>
             <Btn
-              isActive={'disable'}
-              title={this.props.CurrentPage} />
-          </div>
-          <div className={classes.buttonContainer}>
-            <Btn
-              isActive={(page <= maxPages) ? 'active' : 'disable'}
+              isActive={page <= maxPages ? 'active' : 'disable'}
               click={e => this.NextHandler(e)}
               title={'next'} />
-          </div>
-        </div>
+          </ButtonContainer>
+        </ButtonsContainer>
       </React.Fragment>
-
     )
   }
 
   render () {
-    return (
-      <div className={classes.Container}>
-        {this.props.Spinner ? <Spinner /> : this.getMoviesJSX()}
-      </div>
-    )
+    return <Container>{this.props.Spinner ? <Spinner /> : this.getMoviesJSX()}</Container>
   }
 }
 
@@ -94,9 +85,14 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     getMoviesStart: data => dispatch(actionsCreater.getMovieForCurrentPageStart(data)),
-    getMoviesNextStart: data => dispatch(actionsCreater.getMoviesFromSearchbarTitleNextPageStart(data)),
-    getMoviesPrevStart: data => dispatch(actionsCreater.getMoviesFromSearchbarTitlePrevPageStart(data)),
+    getMoviesNextStart: data =>
+      dispatch(actionsCreater.getMoviesFromSearchbarTitleNextPageStart(data)),
+    getMoviesPrevStart: data =>
+      dispatch(actionsCreater.getMoviesFromSearchbarTitlePrevPageStart(data)),
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ListMoviePrev)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ListMoviePrev)

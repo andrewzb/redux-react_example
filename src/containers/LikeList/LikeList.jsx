@@ -1,10 +1,10 @@
 import React from 'react'
-import classes from './LikeList.module.css'
 import * as actionsCreater from '../../store/data/ActionCreaters'
 import { connect } from 'react-redux'
 import LikeListItem from '../../components/LikeListItem/LikeListItem'
 import Btn from '../../components/UI/Button/Button'
 import NotItems from '../../components/NotItems/NotItems'
+import { Main, Container, BtnContainer } from './LikeList.style'
 
 class LikeList extends React.Component {
   renderItemList () {
@@ -23,17 +23,17 @@ class LikeList extends React.Component {
 
   render () {
     return (
-      <div className={classes.Main}>
-        <div className={classes.Container}>
+      <Main>
+        <Container>
           {(this.props.LikeList.length >= 1) ? this.renderItemList() : <NotItems /> }
-        </div>
-        <div className={classes.BtnContainer}>
+        </Container>
+        <BtnContainer>
           <Btn
             click={() => this.props.history.push('/')}
             title={'Go Back'}
             type={'button'} />
-        </div>
-      </div>
+        </BtnContainer>
+      </Main>
     )
   }
 }

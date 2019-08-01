@@ -1,9 +1,20 @@
 import React from 'react'
-import classes from './MoviePage.module.css'
 import { connect } from 'react-redux'
 import * as actionsCreater from '../../store/data/ActionCreaters'
 import Btn from '../../components/UI/Button/Button'
 import DataContainer from '../../components/DataContainer/DataContainer'
+import {
+  Main,
+  Container,
+  TitleAndBtnContainer,
+  PrimaryTitle,
+  PosterAndDataContainer,
+  PosterContainer,
+  Poster,
+  ContainerForData,
+  LinkContainer,
+  LikeAndGoBackBtnContainer,
+} from './MoviePage.style'
 
 class MoviePage extends React.Component {
   componentDidMount () {
@@ -25,45 +36,36 @@ class MoviePage extends React.Component {
 
   getMovieMarckup () {
     if (this.props.MovieData === null) {
-      return (<div>Error</div>)
+      return <div>Error</div>
     }
     return (
-      <div className={classes.Main}>
-        <div className={classes.Container}>
-          <div className={classes.TitleAndBtnContainer}>
-            <div className={classes.Primary_title}>{this.props.MovieData.Title}</div>
-          </div>
-          <div className={classes.PosterAndDataContainer}>
-            <div className={classes.PosterContainer}><img src={this.props.MovieData.Poster} alt="Poster" /></div>
-            <div className={classes.DataContainer}>
+      <Main>
+        <Container>
+          <TitleAndBtnContainer>
+            <PrimaryTitle>{this.props.MovieData.Title}</PrimaryTitle>
+          </TitleAndBtnContainer>
+          <PosterAndDataContainer>
+            <PosterContainer>
+              <Poster img={this.props.MovieData.Poster} />
+            </PosterContainer>
+            <ContainerForData>
               <DataContainer data={this.props} />
-              <div className={classes.LinkContainer}>
-                <Btn
-                  type={'link'}
-                  title={'Site'}
-                  link={this.props.MovieData.Website} />
-              </div>
-            </div>
-          </div>
-          <div className={classes.LikeAndGoBackBtnContainer}>
-            <Btn
-              type={'like'}
-              click={() => this.toggleLike()}
-              title={'Like'} />
-            <Btn
-              type={'button'}
-              title={'GoBack'}
-              click={() => this.props.history.push('/')} />
-          </div>
-        </div>
-      </div>
+              <LinkContainer>
+                <Btn type={'link'} title={'Site'} link={this.props.MovieData.Website} />
+              </LinkContainer>
+            </ContainerForData>
+          </PosterAndDataContainer>
+          <LikeAndGoBackBtnContainer>
+            <Btn type={'like'} click={() => this.toggleLike()} title={'Like'} />
+            <Btn type={'button'} title={'GoBack'} click={() => this.props.history.push('/')} />
+          </LikeAndGoBackBtnContainer>
+        </Container>
+      </Main>
     )
   }
 
   render () {
-    return (
-      this.getMovieMarckup()
-    )
+    return this.getMovieMarckup()
   }
 }
 
@@ -81,4 +83,7 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MoviePage)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MoviePage)

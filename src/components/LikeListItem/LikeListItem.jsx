@@ -1,22 +1,22 @@
 import React from 'react'
-import classes from './LikeListItem.module.css'
 import Icon from '../UserBar/IconUserBar/IconUserBar'
 import { withRouter } from 'react-router-dom'
+import { ItemContainer, PosterPrev, PosterImg, PrimaryTitle, Trash } from './LikeListItem.style'
 
 const LikeListItem = props => {
   const { click, Title, Poster, Id, history } = props
   return (
-    <div className={classes.ItemContainer}>
-      <div className={classes.PosterPrev} onClick={() => history.push(`/${Id}`)} >
-        <img src={Poster} alt="Poster" />
-      </div>
-      <div className={classes.PrimaryTitle}>
+    <ItemContainer>
+      <PosterPrev onClick={() => history.push(`/${Id}`)} >
+        <PosterImg img={Poster} />
+      </PosterPrev>
+      <PrimaryTitle>
         {Title}
-      </div>
-      <div onClick={click} className={classes.Trash}>
+      </PrimaryTitle>
+      <Trash onClick={click}>
         <Icon type={'trash'} />
-      </div>
-    </div>
+      </Trash>
+    </ItemContainer>
   )
 }
 

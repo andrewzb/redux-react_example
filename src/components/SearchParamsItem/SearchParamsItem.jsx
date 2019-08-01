@@ -1,12 +1,13 @@
 import Input from '../UI/Input/Input'
 import React from 'react'
 import classes from './SearchParamsItem.module.css'
+import Container from './SearchParamsItem'
 
 const SearchParamsItem = ({ placeholder }) => {
   return (
-    <div className={classes.Container}>
+    <Container>
       <Input placeholder={placeholder} />
-    </div>
+    </Container>
   )
 }
 
